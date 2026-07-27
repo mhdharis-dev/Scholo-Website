@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function DemoModal({ isOpen, onClose }) {
+export default function DemoModal({ isOpen, onClose, onSuccess }) {
   const [formData, setFormData] = useState({
     modalFullName: '',
     modalSchoolName: '',
@@ -21,7 +21,8 @@ export default function DemoModal({ isOpen, onClose }) {
     e.preventDefault();
     setSubmitting(true);
     const generatedId = Math.floor(100000 + Math.random() * 900000);
-    setRefId(`SCH-${generatedId}`);
+    const formattedRefId = `SCH-${generatedId}`;
+    setRefId(formattedRefId);
 
     const googleFormUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeULr3vBVZZqaOrbV2WmyngAXy15k_LVC_vSsso3tUqpvwUsg/formResponse";
     
@@ -43,10 +44,14 @@ export default function DemoModal({ isOpen, onClose }) {
       .then(() => {
         setSubmitting(false);
         setSubmitted(true);
+        onClose();
+        if (onSuccess) onSuccess(formattedRefId);
       })
       .catch(() => {
         setSubmitting(false);
         setSubmitted(true);
+        onClose();
+        if (onSuccess) onSuccess(formattedRefId);
       });
   };
 

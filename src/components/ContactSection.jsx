@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function ContactSection() {
+export default function ContactSection({ onSuccess }) {
   const [formData, setFormData] = useState({
     fullName: '',
     schoolName: '',
@@ -19,7 +19,8 @@ export default function ContactSection() {
     e.preventDefault();
     setSubmitting(true);
     const generatedId = Math.floor(100000 + Math.random() * 900000);
-    setRefId(`SCH-${generatedId}`);
+    const formattedRefId = `SCH-${generatedId}`;
+    setRefId(formattedRefId);
 
     const googleFormUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeULr3vBVZZqaOrbV2WmyngAXy15k_LVC_vSsso3tUqpvwUsg/formResponse";
     
@@ -41,10 +42,12 @@ export default function ContactSection() {
       .then(() => {
         setSubmitting(false);
         setSubmitted(true);
+        if (onSuccess) onSuccess(formattedRefId);
       })
       .catch(() => {
         setSubmitting(false);
         setSubmitted(true);
+        if (onSuccess) onSuccess(formattedRefId);
       });
   };
 
