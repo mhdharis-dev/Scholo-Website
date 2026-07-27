@@ -67,7 +67,7 @@ export default function Hero({ onOpenDemo }) {
                   <div className="browser-dot yellow"></div>
                   <div className="browser-dot green"></div>
                 </div>
-                <div className="browser-address">https://admin.scholo.app/dashboard</div>
+                <div className="browser-address">https://scholo.netlify.app/</div>
               </div>
               <div className="browser-body">
                 <img

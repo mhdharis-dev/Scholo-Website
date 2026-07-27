@@ -52,19 +52,19 @@ export default function ThreeTierSolution({ onOpenDemo }) {
               </p>
               <div className="feature-list">
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Record Management:</strong> Add, edit, delete, and restore student/teacher profiles via Recycle Bin.</div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Schedules & Timetables:</strong> Configure classrooms, subjects, and master schedules.</div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Fee & Event Oversight:</strong> Monitor fee statuses, school events, and notifications.</div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>System Monitoring:</strong> Live activity logs and role-based permissions.</div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export default function ThreeTierSolution({ onOpenDemo }) {
                     <div className="browser-dot yellow"></div>
                     <div className="browser-dot green"></div>
                   </div>
-                  <div className="browser-address">https://admin.scholo.app/students</div>
+                  <div className="browser-address">https://scholo.netlify.app/</div>
                 </div>
                 <div className="browser-body">
                   <img
@@ -128,19 +128,19 @@ export default function ThreeTierSolution({ onOpenDemo }) {
               </p>
               <div className="feature-list">
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Instant Attendance:</strong> Mark period attendance with one-tap status toggles.</div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Grade Logbook:</strong> Enter exam and assignment scores directly into student records.</div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Class Timetable:</strong> View daily subject schedules and assigned rooms.</div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Parent Broadcasts:</strong> Send homework reminders and student updates.</div>
                 </div>
               </div>
@@ -162,19 +162,19 @@ export default function ThreeTierSolution({ onOpenDemo }) {
               </p>
               <div className="feature-list">
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Live Attendance Tracker:</strong> Instant push notifications for attendance and absences.</div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Digital Gradebook:</strong> View subject-wise performance metrics and exam report cards.</div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>School Circulars:</strong> Receive official announcements, holiday notices, and event schedules.</div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-item-icon">&check;</div>
+                  <div className="feature-item-icon">&#10003;</div>
                   <div><strong>Fee Deadlines:</strong> Transparent payment history and upcoming fee reminders.</div>
                 </div>
               </div>
