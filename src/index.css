@@ -386,30 +386,34 @@ textarea {
   position: relative;
 }
 
+/* Laptop / Browser Desktop Mockup */
 .browser-mockup {
-  background: var(--white);
-  border-radius: var(--border-radius-md);
-  box-shadow: 0 25px 60px rgba(11, 23, 54, 0.15), 0 0 0 1px rgba(11, 23, 54, 0.08);
+  background: #1E293B;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(11, 23, 54, 0.18), 0 0 0 1px rgba(11, 23, 54, 0.1);
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .browser-header {
   background: #1E293B;
-  padding: 10px 14px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .browser-dots {
   display: flex;
   gap: 6px;
+  align-items: center;
 }
 
 .browser-dot {
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
 }
 
@@ -426,61 +430,80 @@ textarea {
 }
 
 .browser-address {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
-  font-family: monospace;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 0.75rem;
-  padding: 3px 12px;
-  border-radius: 4px;
+  padding: 4px 14px;
+  border-radius: 6px;
   width: 100%;
   max-width: 280px;
+  text-align: center;
+  letter-spacing: 0.2px;
 }
 
 .browser-body {
   position: relative;
-  background: #F8FAFC;
-  min-height: 280px;
+  background: #FFFFFF;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .browser-body img {
   width: 100%;
+  height: auto;
   display: block;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
 }
 
+/* iPhone Mobile Mockup */
 .phone-mockup {
-  background: var(--navy);
+  background: #0B1736;
   border-radius: 36px;
-  padding: 10px;
-  box-shadow: 0 25px 60px rgba(11, 23, 54, 0.25), 0 0 0 2px rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  box-shadow: 0 20px 48px rgba(11, 23, 54, 0.25), 0 0 0 2px rgba(255, 255, 255, 0.12);
   position: relative;
+  overflow: hidden;
 }
 
 .phone-notch {
-  width: 70px;
-  height: 14px;
-  background: var(--navy);
+  width: 64px;
+  height: 12px;
+  background: #0B1736;
   border-radius: 0 0 10px 10px;
   position: absolute;
-  top: 10px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
 
 .phone-screen {
-  background: var(--white);
+  background: #FFFFFF;
   border-radius: 28px;
   overflow: hidden;
+  line-height: 0;
+}
+
+.phone-screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .hero-phone-floating {
   position: absolute;
-  bottom: -24px;
-  right: -18px;
+  bottom: -20px;
+  right: -12px;
   z-index: 3;
-  width: 170px;
+  width: 160px;
   transform: rotate(3deg);
-  box-shadow: 0 25px 60px rgba(11, 23, 54, 0.25);
+  box-shadow: 0 24px 50px rgba(11, 23, 54, 0.3);
   transition: transform var(--transition-normal);
 }
 
