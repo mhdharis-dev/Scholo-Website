@@ -6,6 +6,8 @@ import ThreeTierSolution from './components/ThreeTierSolution';
 import SecurityStack from './components/SecurityStack';
 import Roadmap from './components/Roadmap';
 import AboutSection from './components/AboutSection';
+import Testimonials from './components/Testimonials';
+import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import DemoModal from './components/DemoModal';
 import SuccessModal from './components/SuccessModal';
@@ -42,6 +44,8 @@ export default function App() {
         <SecurityStack />
         <Roadmap />
         <AboutSection />
+        <Testimonials />
+        <FAQSection />
         <ContactSection onSuccess={handleSuccess} />
       </main>
       <Footer onOpenLegal={handleOpenLegal} />

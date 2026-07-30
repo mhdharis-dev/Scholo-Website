@@ -30,6 +30,8 @@ export default function Footer({ onOpenLegal }) {
               <a href="#solutions">3-Tier Ecosystem</a>
               <a href="#roadmap">Innovation Roadmap</a>
               <a href="#about">About & Developer</a>
+              <a href="#testimonials">Testimonials</a>
+              <a href="#faq">FAQ</a>
               <a href="#contact">Request Demo</a>
             </div>
           </div>
