@@ -95,6 +95,15 @@ export default function Header({ onOpenDemo }) {
             </li>
             <li>
               <a
+                href="#about"
+                className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+                onClick={(e) => handleNavClick(e, '#about')}
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
                 href="#contact"
                 className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
                 onClick={(e) => handleNavClick(e, '#contact')}

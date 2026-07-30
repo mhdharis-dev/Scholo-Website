@@ -790,6 +790,169 @@ textarea {
   line-height: 1.5;
 }
 
+/* About Section & Creator Profile */
+.about-section {
+  padding: 90px 0;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border-light);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.about-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-lg);
+  padding: 36px 30px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: var(--transition-normal);
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(41, 82, 227, 0.25);
+}
+
+.about-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--border-radius-sm);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.about-card h3 {
+  font-size: 1.4rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.about-card p {
+  color: var(--slate-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.about-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 20px 0 24px;
+}
+
+.about-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--navy-muted);
+  line-height: 1.5;
+}
+
+.about-highlights li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.playstore-container {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.playstore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.playstore-btn:hover {
+  background: #111e3f;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.playstore-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.playstore-sub {
+  font-size: 0.65rem;
+  letter-spacing: 0.8px;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.playstore-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.creator-role {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+}
+
+.creator-bio {
+  margin-bottom: 20px;
+}
+
+.creator-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.badge-item {
+  font-size: 0.775rem;
+  font-weight: 600;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: var(--border-radius-full);
+}
+
+.creator-actions {
+  margin-top: auto;
+}
+
+.portfolio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  padding: 12px 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 /* CTA & Contact Form */
 .cta-section {
   padding: 100px 0 60px;
@@ -1430,7 +1593,8 @@ section[id] {
 
   .pillars-grid,
   .security-grid,
-  .roadmap-grid {
+  .roadmap-grid,
+  .about-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }

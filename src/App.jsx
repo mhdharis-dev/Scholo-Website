@@ -5,6 +5,7 @@ import ValuePillars from './components/ValuePillars';
 import ThreeTierSolution from './components/ThreeTierSolution';
 import SecurityStack from './components/SecurityStack';
 import Roadmap from './components/Roadmap';
+import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
 import DemoModal from './components/DemoModal';
 import SuccessModal from './components/SuccessModal';
@@ -40,6 +41,7 @@ export default function App() {
         <ThreeTierSolution onOpenDemo={handleOpenDemo} />
         <SecurityStack />
         <Roadmap />
+        <AboutSection />
         <ContactSection onSuccess={handleSuccess} />
       </main>
       <Footer onOpenLegal={handleOpenLegal} />
