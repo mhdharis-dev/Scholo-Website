@@ -77,15 +77,6 @@ export default function Header({ onOpenDemo }) {
             </li>
             <li>
               <a
-                href="#security"
-                className={`nav-link ${activeSection === 'security' ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, '#security')}
-              >
-                Security & Stack
-              </a>
-            </li>
-            <li>
-              <a
                 href="#roadmap"
                 className={`nav-link ${activeSection === 'roadmap' ? 'active' : ''}`}
                 onClick={(e) => handleNavClick(e, '#roadmap')}
@@ -120,15 +111,6 @@ export default function Header({ onOpenDemo }) {
                 FAQ
               </a>
             </li>
-            <li>
-              <a
-                href="#contact"
-                className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, '#contact')}
-              >
-                Contact Us
-              </a>
-            </li>
           </ul>
 
           <div className="nav-actions">
@@ -136,15 +118,13 @@ export default function Header({ onOpenDemo }) {
               Request Demo &rarr;
             </button>
             <button
-              className="mobile-toggle"
-              aria-label="Toggle Navigation"
+              className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`}
+              aria-label="Toggle navigation menu"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
+              <span></span>
+              <span></span>
+              <span></span>
             </button>
           </div>
         </nav>

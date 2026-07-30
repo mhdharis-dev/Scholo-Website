@@ -9,7 +9,7 @@ export default function Footer({ onOpenLegal }) {
               <span className="brand-text" style={{ color: 'var(--white)' }}>Scholo</span>
             </a>
             <p>
-              The next-generation student management platform empowering school administrators, teachers, and parents with real-time cloud synchronization.
+              The next-generation student management platform empowering school administrators, teachers, and parents with real-time digital synchronization.
             </p>
           </div>
 
@@ -19,7 +19,6 @@ export default function Footer({ onOpenLegal }) {
               <a href="#solutions">Admin Web Console</a>
               <a href="#solutions">Teacher Mobile App</a>
               <a href="#solutions">Parent Mobile App</a>
-              <a href="#" onClick={(e) => { e.preventDefault(); onOpenLegal('security'); }}>Firebase & Encryption</a>
             </div>
           </div>
 
@@ -62,11 +61,26 @@ export default function Footer({ onOpenLegal }) {
         </div>
 
         <div className="footer-bottom">
-          <div>&copy; 2026 Scholo Inc. All rights reserved. Built with Flutter, Dart & Firebase.</div>
+          <div>&copy; {new Date().getFullYear()} Scholo. All rights reserved.</div>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <a href="#" style={{ color: 'inherit' }} onClick={(e) => { e.preventDefault(); onOpenLegal('privacy'); }}>Privacy Policy</a>
-            <a href="#" style={{ color: 'inherit' }} onClick={(e) => { e.preventDefault(); onOpenLegal('terms'); }}>Terms of Service</a>
-            <a href="#" style={{ color: 'inherit' }} onClick={(e) => { e.preventDefault(); onOpenLegal('security'); }}>Security Standards</a>
+            <button
+              onClick={() => onOpenLegal('privacy')}
+              style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', font: 'inherit' }}
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={() => onOpenLegal('terms')}
+              style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', font: 'inherit' }}
+            >
+              Terms of Service
+            </button>
+            <button
+              onClick={() => onOpenLegal('security')}
+              style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', font: 'inherit' }}
+            >
+              Security Standards
+            </button>
           </div>
         </div>
       </div>

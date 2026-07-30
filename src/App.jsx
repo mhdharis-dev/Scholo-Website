@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import ValuePillars from './components/ValuePillars';
 import ThreeTierSolution from './components/ThreeTierSolution';
-import SecurityStack from './components/SecurityStack';
 import Roadmap from './components/Roadmap';
 import AboutSection from './components/AboutSection';
 import Testimonials from './components/Testimonials';
@@ -41,7 +40,6 @@ export default function App() {
         <Hero onOpenDemo={handleOpenDemo} />
         <ValuePillars />
         <ThreeTierSolution onOpenDemo={handleOpenDemo} />
-        <SecurityStack />
         <Roadmap />
         <AboutSection />
         <Testimonials />

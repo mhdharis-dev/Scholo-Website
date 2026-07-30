@@ -71,17 +71,10 @@ export default function AboutSection() {
               </svg>
             </div>
             <h3>Created By Muhammed Haris</h3>
-            <p className="creator-role">Full-Stack & Mobile Developer (Flutter & React Specialist)</p>
+            <p className="creator-role">Founder & Software Engineer</p>
             <p className="creator-bio">
-              Scholo was conceptualized, designed, and developed by <strong>Muhammed Haris</strong>, a passionate software engineer focused on building high-performance cross-platform applications and modern web solutions.
+              Scholo was conceptualized, designed, and developed by <strong>Muhammed Haris</strong> to empower educational institutions with modern digital workflows and paperless communication.
             </p>
-
-            <div className="creator-badges">
-              <span className="badge-item">Flutter & Dart</span>
-              <span className="badge-item">Firebase Firestore</span>
-              <span className="badge-item">Riverpod State Management</span>
-              <span className="badge-item">React & Vite</span>
-            </div>
 
             <div className="creator-actions">
               <a
