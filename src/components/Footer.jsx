@@ -1,10 +1,30 @@
-export default function Footer({ onOpenLegal }) {
+export default function Footer({ onOpenLegal, onNavigate }) {
+  const handlePrivacyClick = (e) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate('/privacy-policy');
+    } else {
+      window.location.href = '/privacy-policy';
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#" className="brand-logo" style={{ color: 'var(--white)' }} aria-label="Scholo Home">
+            <a 
+              href="/" 
+              className="brand-logo" 
+              style={{ color: 'var(--white)' }} 
+              aria-label="Scholo Home"
+              onClick={(e) => {
+                if (onNavigate) {
+                  e.preventDefault();
+                  onNavigate('/');
+                }
+              }}
+            >
               <img src="/assets/logo/Scholo_LogoTransperent.png" alt="Scholo Logo Mark" />
               <span className="brand-text" style={{ color: 'var(--white)' }}>Scholo</span>
             </a>
@@ -16,22 +36,23 @@ export default function Footer({ onOpenLegal }) {
           <div>
             <h4 className="footer-title">Platform Tiers</h4>
             <div className="footer-links">
-              <a href="#solutions">Admin Web Console</a>
-              <a href="#solutions">Teacher Mobile App</a>
-              <a href="#solutions">Parent Mobile App</a>
+              <a href="/#solutions">Admin Web Console</a>
+              <a href="/#solutions">Teacher Mobile App</a>
+              <a href="/#solutions">Parent Mobile App</a>
             </div>
           </div>
 
           <div>
             <h4 className="footer-title">Product</h4>
             <div className="footer-links">
-              <a href="#overview">Overview</a>
-              <a href="#solutions">3-Tier Ecosystem</a>
-              <a href="#roadmap">Innovation Roadmap</a>
-              <a href="#about">About & Developer</a>
-              <a href="#testimonials">Testimonials</a>
-              <a href="#faq">FAQ</a>
-              <a href="#contact">Request Demo</a>
+              <a href="/#overview">Overview</a>
+              <a href="/#solutions">3-Tier Ecosystem</a>
+              <a href="/#roadmap">Innovation Roadmap</a>
+              <a href="/#about">About & Developer</a>
+              <a href="/#testimonials">Testimonials</a>
+              <a href="/#faq">FAQ</a>
+              <a href="/#contact">Request Demo</a>
+              <a href="/privacy-policy" onClick={handlePrivacyClick}>Privacy Policy Page</a>
             </div>
           </div>
 
@@ -63,12 +84,13 @@ export default function Footer({ onOpenLegal }) {
         <div className="footer-bottom">
           <div>&copy; {new Date().getFullYear()} Scholo. All rights reserved.</div>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <button
-              onClick={() => onOpenLegal('privacy')}
-              style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', font: 'inherit' }}
+            <a
+              href="/privacy-policy"
+              onClick={handlePrivacyClick}
+              style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', font: 'inherit' }}
             >
               Privacy Policy
-            </button>
+            </a>
             <button
               onClick={() => onOpenLegal('terms')}
               style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', font: 'inherit' }}
@@ -87,3 +109,4 @@ export default function Footer({ onOpenLegal }) {
     </footer>
   );
 }
+

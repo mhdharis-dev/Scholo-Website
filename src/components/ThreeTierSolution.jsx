@@ -81,7 +81,7 @@ export default function ThreeTierSolution({ onOpenDemo }) {
                     <div className="browser-dot yellow"></div>
                     <div className="browser-dot green"></div>
                   </div>
-                  <div className="browser-address">https://scholo.netlify.app/</div>
+                  <div className="browser-address">https://scholo.scholomates.com/</div>
                 </div>
                 <div className="browser-body">
                   <img

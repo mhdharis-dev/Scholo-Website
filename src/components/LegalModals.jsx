@@ -1,4 +1,4 @@
-export default function LegalModals({ activeModal, onClose }) {
+export default function LegalModals({ activeModal, onClose, onNavigate }) {
   if (!activeModal) return null;
 
   return (
@@ -8,19 +8,31 @@ export default function LegalModals({ activeModal, onClose }) {
           <div className="modal-content" role="dialog" aria-labelledby="privacyTitle">
             <button className="modal-close" aria-label="Close modal" onClick={onClose}>&times;</button>
             <h3 id="privacyTitle" style={{ fontSize: '1.4rem', marginBottom: '16px', color: 'var(--navy)' }}>
-              Privacy Policy
+              Privacy Policy & Data Security
             </h3>
             <div>
               <p style={{ marginBottom: '14px', color: 'var(--slate-text)' }}>
                 Scholo Inc. takes educational data privacy seriously.
               </p>
               <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '14px', lineHeight: 1.6, color: 'var(--slate-text)', fontSize: '0.9rem' }}>
-                <li><strong>1. Data Collection:</strong> We collect school info, teacher registries, student rosters, phone configurations, and grades purely to provide management services.</li>
-                <li><strong>2. Data Processing & Hosting:</strong> All database entries reside on secure Firebase Firestore instances. Media assets are uploaded directly to verified Cloudinary storage.</li>
-                <li><strong>3. Data Sharing:</strong> Student and teacher records are never shared, sold, or distributed to third-party advertising companies. Your records belong exclusively to your school code.</li>
-                <li><strong>4. Information Security:</strong> We enforce encryption algorithms to protect credentials and private records. Administrators can view, update, or soft-delete data anytime.</li>
-                <li><strong>5. Compliance:</strong> Our platform is engineered to align with global privacy standards regarding educational records and student directories.</li>
+                <li><strong>1. Data Collection:</strong> We collect student rosters, parent contacts, teacher profiles, attendance, marks, timetables, and school metadata.</li>
+                <li><strong>2. Cloud Hosting:</strong> Enterprise Firebase Firestore database, Firebase Auth, FCM notifications, and Cloudinary media storage.</li>
+                <li><strong>3. Zero Data Sales:</strong> No data selling, no advertising tracking, no external marketing sharing.</li>
+                <li><strong>4. Data Deletion:</strong> Soft deletion recycle bin with 30-day recovery and user permanent erasure procedures.</li>
+                <li><strong>5. Minor Protections:</strong> Full COPPA and FERPA compliant student privacy.</li>
               </ul>
+              <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid var(--border-light)', display: 'flex', justifyContent: 'flex-end' }}>
+                <button
+                  onClick={() => {
+                    onClose();
+                    if (onNavigate) onNavigate('/privacy-policy');
+                    else window.location.href = '/privacy-policy';
+                  }}
+                  className="btn btn-primary btn-sm"
+                >
+                  View Dedicated Privacy Policy Page (/privacy-policy) &rarr;
+                </button>
+              </div>
             </div>
           </div>
         </div>

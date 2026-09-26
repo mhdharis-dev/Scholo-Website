@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 
-export default function Header({ onOpenDemo }) {
+export default function Header({ onOpenDemo, onNavigate, currentPath = '/' }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('overview');
 
+  const isPrivacyPage = currentPath.includes('privacy');
+
   useEffect(() => {
+    if (isPrivacyPage) return;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
@@ -32,11 +36,21 @@ export default function Header({ onOpenDemo }) {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isPrivacyPage]);
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+
+    if (isPrivacyPage) {
+      if (onNavigate) {
+        onNavigate('/', targetId);
+      } else {
+        window.location.href = '/' + targetId;
+      }
+      return;
+    }
+
     setActiveSection(targetId.replace('#', ''));
     history.replaceState(null, '', targetId);
 
@@ -47,11 +61,29 @@ export default function Header({ onOpenDemo }) {
     }
   };
 
+  const handlePrivacyClick = (e) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    if (onNavigate) {
+      onNavigate('/privacy-policy');
+    } else {
+      window.location.href = '/privacy-policy';
+    }
+  };
+
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${scrolled || isPrivacyPage ? 'scrolled' : ''}`}>
       <div className="container">
         <nav className="navbar">
-          <a href="#" className="brand-logo" aria-label="Scholo Home" onClick={(e) => handleNavClick(e, '#overview')}>
+          <a
+            href="/"
+            className="brand-logo"
+            aria-label="Scholo Home"
+            onClick={(e) => {
+              e.preventDefault();
+              if (onNavigate) onNavigate('/');
+            }}
+          >
             <img src="/assets/logo/Scholo_LogoTransperent.png" alt="Scholo Logo" />
             <span className="brand-text">Scholo</span>
           </a>
@@ -59,8 +91,8 @@ export default function Header({ onOpenDemo }) {
           <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
             <li>
               <a
-                href="#overview"
-                className={`nav-link ${activeSection === 'overview' ? 'active' : ''}`}
+                href="/#overview"
+                className={`nav-link ${!isPrivacyPage && activeSection === 'overview' ? 'active' : ''}`}
                 onClick={(e) => handleNavClick(e, '#overview')}
               >
                 Overview
@@ -68,8 +100,8 @@ export default function Header({ onOpenDemo }) {
             </li>
             <li>
               <a
-                href="#solutions"
-                className={`nav-link ${activeSection === 'solutions' ? 'active' : ''}`}
+                href="/#solutions"
+                className={`nav-link ${!isPrivacyPage && activeSection === 'solutions' ? 'active' : ''}`}
                 onClick={(e) => handleNavClick(e, '#solutions')}
               >
                 3-Tier Solution
@@ -77,8 +109,8 @@ export default function Header({ onOpenDemo }) {
             </li>
             <li>
               <a
-                href="#roadmap"
-                className={`nav-link ${activeSection === 'roadmap' ? 'active' : ''}`}
+                href="/#roadmap"
+                className={`nav-link ${!isPrivacyPage && activeSection === 'roadmap' ? 'active' : ''}`}
                 onClick={(e) => handleNavClick(e, '#roadmap')}
               >
                 Roadmap
@@ -86,8 +118,8 @@ export default function Header({ onOpenDemo }) {
             </li>
             <li>
               <a
-                href="#about"
-                className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+                href="/#about"
+                className={`nav-link ${!isPrivacyPage && activeSection === 'about' ? 'active' : ''}`}
                 onClick={(e) => handleNavClick(e, '#about')}
               >
                 About
@@ -95,8 +127,8 @@ export default function Header({ onOpenDemo }) {
             </li>
             <li>
               <a
-                href="#testimonials"
-                className={`nav-link ${activeSection === 'testimonials' ? 'active' : ''}`}
+                href="/#testimonials"
+                className={`nav-link ${!isPrivacyPage && activeSection === 'testimonials' ? 'active' : ''}`}
                 onClick={(e) => handleNavClick(e, '#testimonials')}
               >
                 Testimonials
@@ -104,11 +136,20 @@ export default function Header({ onOpenDemo }) {
             </li>
             <li>
               <a
-                href="#faq"
-                className={`nav-link ${activeSection === 'faq' ? 'active' : ''}`}
+                href="/#faq"
+                className={`nav-link ${!isPrivacyPage && activeSection === 'faq' ? 'active' : ''}`}
                 onClick={(e) => handleNavClick(e, '#faq')}
               >
                 FAQ
+              </a>
+            </li>
+            <li>
+              <a
+                href="/privacy-policy"
+                className={`nav-link ${isPrivacyPage ? 'active' : ''}`}
+                onClick={handlePrivacyClick}
+              >
+                Privacy Policy
               </a>
             </li>
           </ul>
@@ -132,3 +173,4 @@ export default function Header({ onOpenDemo }) {
     </header>
   );
 }
+
