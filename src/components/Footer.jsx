@@ -1,3 +1,5 @@
+import { APP_LINKS } from '../config/appLinks';
+
 export default function Footer({ onOpenLegal, onNavigate }) {
   const handlePrivacyClick = (e) => {
     e.preventDefault();
@@ -11,12 +13,12 @@ export default function Footer({ onOpenLegal, onNavigate }) {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-grid">
+        <div className="footer-grid-minimal">
+          {/* Brand info */}
           <div className="footer-brand">
             <a 
               href="/" 
-              className="brand-logo" 
-              style={{ color: 'var(--white)' }} 
+              className="brand-logo footer-logo" 
               aria-label="Scholo Home"
               onClick={(e) => {
                 if (onNavigate) {
@@ -25,83 +27,117 @@ export default function Footer({ onOpenLegal, onNavigate }) {
                 }
               }}
             >
-              <img src="/assets/logo/Scholo_LogoTransperent.png" alt="Scholo Logo Mark" />
-              <span className="brand-text" style={{ color: 'var(--white)' }}>Scholo</span>
+              <img src="/assets/logo/Scholo_LogoTransperent.png" alt="Scholo Logo" />
+              <div className="brand-text-group">
+                <span className="brand-text">Scholo</span>
+                <span className="brand-badge-footer">App</span>
+              </div>
             </a>
-            <p>
-              The next-generation student management platform empowering school administrators, teachers, and parents with real-time digital synchronization.
+            <p className="footer-brand-desc">
+              A Smarter School, A Brighter Future. The mobile-first student management system for students, attendance, marks, and timetables.
             </p>
-          </div>
 
-          <div>
-            <h4 className="footer-title">Platform Tiers</h4>
-            <div className="footer-links">
-              <a href="/#solutions">Admin Web Console</a>
-              <a href="/#solutions">Teacher Mobile App</a>
-              <a href="/#solutions">Parent Mobile App</a>
+            <div className="footer-app-links">
+              <a
+                href={APP_LINKS.playStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-store-pill"
+                title="Google Play Store"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3.609 1.814L13.793 12 3.61 22.186c-.368-.352-.61-.84-.61-1.396V3.21c0-.556.242-1.044.61-1.396zM15.207 13.414l2.457 2.457-12.247 7.072 9.79-9.529zm0-2.828L5.417 1.057l12.247 7.072-2.457 2.457zm1.414 1.414l3.155 1.821c.883.51.883 1.34 0 1.85l-3.155 1.821-2.121-2.121 2.121-2.121z"/>
+                </svg>
+                <span>Google Play</span>
+              </a>
+
+              <a
+                href="#download"
+                className="footer-store-pill"
+                title="Download App"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>Download Center</span>
+              </a>
             </div>
           </div>
 
+          {/* Quick Navigation */}
           <div>
-            <h4 className="footer-title">Product</h4>
+            <h4 className="footer-title">Navigation</h4>
             <div className="footer-links">
               <a href="/#overview">Overview</a>
-              <a href="/#solutions">3-Tier Ecosystem</a>
-              <a href="/#roadmap">Innovation Roadmap</a>
-              <a href="/#about">About & Developer</a>
-              <a href="/#testimonials">Testimonials</a>
-              <a href="/#faq">FAQ</a>
-              <a href="/#contact">Request Demo</a>
-              <a href="/privacy-policy" onClick={handlePrivacyClick}>Privacy Policy Page</a>
+              <a href="/#features">Core Features</a>
+              <a href="/#screens">App Screens Tour</a>
+              <a href="/#download">Google Play Download</a>
+              <a href="/#contact">Request Live Demo</a>
             </div>
           </div>
 
+          {/* Core Modules */}
           <div>
-            <h4 className="footer-title">Contact & Support</h4>
+            <h4 className="footer-title">Modules</h4>
             <div className="footer-links">
-              <a href="mailto:app.scholo@gmail.com">app.scholo@gmail.com</a>
-              <a href="tel:+919544234298">+91 95442 34298</a>
+              <a href="/#features">👥 Students Directory</a>
+              <a href="/#features">📅 1-Tap Attendance</a>
+              <a href="/#features">📝 Marks & Grades</a>
+              <a href="/#features">⏰ Timetable & Schedules</a>
+            </div>
+          </div>
+
+          {/* Contact & Support */}
+          <div>
+            <h4 className="footer-title">Contact</h4>
+            <div className="footer-links">
+              <a href={`mailto:${APP_LINKS.supportEmail}`}>{APP_LINKS.supportEmail}</a>
+              <a href={`tel:${APP_LINKS.supportPhone}`}>{APP_LINKS.supportPhone}</a>
               <a
-                href="https://wa.me/919544234298?text=Hello%20Scholo%20Team%2C%20I%20would%20like%20to%20know%20more%20about%20the%20School%20Management%20System."
+                href={`https://wa.me/${APP_LINKS.supportWhatsApp}?text=Hello%20Scholo%20Team%2C%20I%20would%20like%20to%20know%20more%20about%20the%20School%20Management%20System.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: '#25D366', fontWeight: 600 }}
+                className="footer-chat-link"
               >
-                Chat on WhatsApp
+                <span>WhatsApp Live Chat</span>
               </a>
               <a
-                href="https://www.instagram.com/app.scholo?igsh=MWRvbzB3b2FoYXA2bA=="
+                href={APP_LINKS.creatorPortfolioUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: '#E1306C', fontWeight: 600 }}
+                className="footer-portfolio-link"
               >
-                Follow on Instagram
+                <span>Creator Portfolio ↗</span>
               </a>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <div>&copy; {new Date().getFullYear()} Scholo. All rights reserved.</div>
-          <div style={{ display: 'flex', gap: '16px' }}>
+          <div className="footer-copyright">
+            &copy; {new Date().getFullYear()} Scholo. A Smarter School, A Brighter Future.
+          </div>
+          <div className="footer-legal-links">
             <a
               href="/privacy-policy"
               onClick={handlePrivacyClick}
-              style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', font: 'inherit' }}
+              className="legal-link"
             >
               Privacy Policy
             </a>
             <button
               onClick={() => onOpenLegal('terms')}
-              style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', font: 'inherit' }}
+              className="legal-link-btn"
             >
               Terms of Service
             </button>
             <button
               onClick={() => onOpenLegal('security')}
-              style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', font: 'inherit' }}
+              className="legal-link-btn"
             >
-              Security Standards
+              Security
             </button>
           </div>
         </div>
@@ -109,4 +145,3 @@ export default function Footer({ onOpenLegal, onNavigate }) {
     </footer>
   );
 }
-

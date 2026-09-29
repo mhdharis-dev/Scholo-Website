@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import ValuePillars from './components/ValuePillars';
-import ThreeTierSolution from './components/ThreeTierSolution';
-import Roadmap from './components/Roadmap';
-import AboutSection from './components/AboutSection';
-import Testimonials from './components/Testimonials';
-import FAQSection from './components/FAQSection';
+import CoreFeatures from './components/CoreFeatures';
+import AppScreensTour from './components/AppScreensTour';
+import AppDownloadSection from './components/AppDownloadSection';
 import ContactSection from './components/ContactSection';
 import DemoModal from './components/DemoModal';
 import SuccessModal from './components/SuccessModal';
@@ -91,13 +88,19 @@ export default function App() {
           <PrivacyPolicyPage onNavigate={navigateTo} onOpenDemo={handleOpenDemo} />
         ) : (
           <>
+            {/* 1. Focused Promotional Hero with Official Poster */}
             <Hero onOpenDemo={handleOpenDemo} />
-            <ValuePillars />
-            <ThreeTierSolution onOpenDemo={handleOpenDemo} />
-            <Roadmap />
-            <AboutSection />
-            <Testimonials />
-            <FAQSection />
+
+            {/* 2. Core 4 Modules Provided by App (Students, Attendance, Marks, Timetable) */}
+            <CoreFeatures />
+
+            {/* 3. Interactive App Onboarding Screens Tour (The 4 Play Store Testing Screens) */}
+            <AppScreensTour />
+
+            {/* 4. Dedicated Google Play Store Download Box */}
+            <AppDownloadSection />
+
+            {/* 5. Minimal Contact & Request Demo Section */}
             <ContactSection onSuccess={handleSuccess} />
           </>
         )}
@@ -114,4 +117,3 @@ export default function App() {
     </div>
   );
 }
-

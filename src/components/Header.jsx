@@ -17,7 +17,7 @@ export default function Header({ onOpenDemo, onNavigate, currentPath = '/' }) {
       let current = '';
       const scrollPos = window.scrollY + 140;
 
-      sections.forEach(section => {
+      sections.forEach((section) => {
         const top = section.offsetTop;
         const height = section.offsetHeight;
         if (scrollPos >= top && scrollPos < top + height) {
@@ -27,10 +27,6 @@ export default function Header({ onOpenDemo, onNavigate, currentPath = '/' }) {
 
       if (current) {
         setActiveSection(current);
-        const newHash = `#${current}`;
-        if (window.location.hash !== newHash) {
-          history.replaceState(null, '', newHash);
-        }
       }
     };
 
@@ -61,20 +57,11 @@ export default function Header({ onOpenDemo, onNavigate, currentPath = '/' }) {
     }
   };
 
-  const handlePrivacyClick = (e) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    if (onNavigate) {
-      onNavigate('/privacy-policy');
-    } else {
-      window.location.href = '/privacy-policy';
-    }
-  };
-
   return (
     <header className={`header ${scrolled || isPrivacyPage ? 'scrolled' : ''}`}>
       <div className="container">
         <nav className="navbar">
+          {/* Logo */}
           <a
             href="/"
             className="brand-logo"
@@ -84,10 +71,16 @@ export default function Header({ onOpenDemo, onNavigate, currentPath = '/' }) {
               if (onNavigate) onNavigate('/');
             }}
           >
-            <img src="/assets/logo/Scholo_LogoTransperent.png" alt="Scholo Logo" />
-            <span className="brand-text">Scholo</span>
+            <div className="logo-glow-wrapper">
+              <img src="/assets/logo/Scholo_LogoTransperent.png" alt="Scholo Logo" />
+            </div>
+            <div className="brand-text-group">
+              <span className="brand-text">Scholo</span>
+              <span className="brand-badge">App</span>
+            </div>
           </a>
 
+          {/* Minimal 4-Item Navigation Menu */}
           <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
             <li>
               <a
@@ -100,63 +93,41 @@ export default function Header({ onOpenDemo, onNavigate, currentPath = '/' }) {
             </li>
             <li>
               <a
-                href="/#solutions"
-                className={`nav-link ${!isPrivacyPage && activeSection === 'solutions' ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, '#solutions')}
+                href="/#features"
+                className={`nav-link ${!isPrivacyPage && activeSection === 'features' ? 'active' : ''}`}
+                onClick={(e) => handleNavClick(e, '#features')}
               >
-                3-Tier Solution
+                Features
               </a>
             </li>
             <li>
               <a
-                href="/#roadmap"
-                className={`nav-link ${!isPrivacyPage && activeSection === 'roadmap' ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, '#roadmap')}
+                href="/#screens"
+                className={`nav-link ${!isPrivacyPage && activeSection === 'screens' ? 'active' : ''}`}
+                onClick={(e) => handleNavClick(e, '#screens')}
               >
-                Roadmap
+                App Screens
               </a>
             </li>
             <li>
               <a
-                href="/#about"
-                className={`nav-link ${!isPrivacyPage && activeSection === 'about' ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, '#about')}
+                href="/#download"
+                className={`nav-link nav-highlight ${!isPrivacyPage && activeSection === 'download' ? 'active' : ''}`}
+                onClick={(e) => handleNavClick(e, '#download')}
               >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="/#testimonials"
-                className={`nav-link ${!isPrivacyPage && activeSection === 'testimonials' ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, '#testimonials')}
-              >
-                Testimonials
-              </a>
-            </li>
-            <li>
-              <a
-                href="/#faq"
-                className={`nav-link ${!isPrivacyPage && activeSection === 'faq' ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, '#faq')}
-              >
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a
-                href="/privacy-policy"
-                className={`nav-link ${isPrivacyPage ? 'active' : ''}`}
-                onClick={handlePrivacyClick}
-              >
-                Privacy Policy
+                <span>📱 Download</span>
+                <span className="nav-new-pill">Play Store</span>
               </a>
             </li>
           </ul>
 
+          {/* Action CTA */}
           <div className="nav-actions">
-            <button className="btn btn-primary js-open-demo-modal" onClick={onOpenDemo}>
-              Request Demo &rarr;
+            <button className="btn btn-primary nav-cta-btn js-open-demo-modal" onClick={onOpenDemo}>
+              <span>Request Demo</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </button>
             <button
               className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`}
@@ -173,4 +144,3 @@ export default function Header({ onOpenDemo, onNavigate, currentPath = '/' }) {
     </header>
   );
 }
-
